@@ -1,0 +1,50 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.container{
+  padding:24px;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:16px;
+  margin: 16px 0 24px;
+}
+
+.user-card {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.user-name {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.user-email {
+  margin: 0;
+  color: #555;
+  word-break: break-all;
+}
+
+button{
+  padding: 10px 16px;
+  border:0;
+  border-radius:8px;
+  background:#e0aaff;
+  color:#fff;
+  cursor:pointer;
+}
+
+button:hover {
+  filter: brightness(0.95);
+}
