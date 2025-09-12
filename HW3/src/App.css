@@ -1,0 +1,32 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}.timer-container {
+  display: grid;
+  gap: 12px;
+  max-width: 320px;
+}
+
+.timer-label {
+  display: grid;
+  gap: 8px;
+}
+
+.timer-input {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.timer-button {
+  padding: 10px 14px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.timer-value {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+}
