@@ -90,9 +90,17 @@ export const FormikFormHook = () => {
         <input type='text' name='city' placeholder='City' value={formik.values.city} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
         {formik.touched.city && formik.errors.city && (<div style={{color:"red"}}>{formik.errors.city}</div>)}
 
-
-        <input type='text' name='country' placeholder='Country' value={formik.values.country} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+        <select name="country" value={formik.values.country} onChange={formik.handleChange} onBlur={formik.handleBlur}>
+          <option value=''>Select a country</option>
+          <option value='Kz'>Kazakhstan</option>
+          <option value='Russ'>Russia</option>
+          <option value='US'>US</option>
+        </select>
         {formik.touched.country && formik.errors.country && (<div style={{color:"red"}}>{formik.errors.country}</div>)}
+
+
+        {/* <input type='text' name='country' placeholder='Country' value={formik.values.country} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+        {formik.touched.country && formik.errors.country && (<div style={{color:"red"}}>{formik.errors.country}</div>)} */}
 
         <input type='text' name='phone' placeholder='Phone' value={formik.values.education} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
         <select name="education" value={formik.values.education} onChange={formik.handleChange} onBlur={formik.handleBlur}>
