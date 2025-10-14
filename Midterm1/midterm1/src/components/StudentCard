@@ -1,0 +1,43 @@
+import { useState, useRef, useCallback, useEffect } from 'react'
+
+
+export const StudentCard=()=> {
+  const [students, setStudent] = useState(0);
+  const inputRef=useRef(null);
+
+  useEffect(( )=>{
+    if (students.length>10){
+      alert("Student list is full")
+    }
+  },[students]);
+
+  const addStudent=useCallback(()=>{
+    const text= input.current.value.trim();
+    if(text !== ""){
+      const newStudent ={id:Date.now(), text, completed:false};
+      setStudent([...students, newStudent]);
+      inputRef.current.value=''
+      inputRef.current.focus();
+    }
+  }, [students]);
+
+  const searchStudent = useCallback(
+    (id) => {
+      const updated = students.map((student) =>
+        student.id === id ? { ...student} : student
+      );
+      setStudent(updated);
+    },
+    [students]
+  );
+
+  const deleteStudent = useCallback(
+    (id) => {
+      const filtered = students.filter((student) => task.id !== id);
+      setTasks(filtered);
+    },
+    [students]
+  );
+
+};
+
