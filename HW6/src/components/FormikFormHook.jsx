@@ -4,7 +4,7 @@ import * as yup from 'yup';
 
 const schema=yup.object({
   fullName: yup.string().required("Full name is required"),
-  email: yup.string().required("Email is required"),
+  email: yup.string().required("Email is required").matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Invalid email address"),
   password: yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
   course: yup.string().required("Please select a course"),
   gender: yup.string().required("Please select a gender"),
@@ -43,14 +43,12 @@ export const FormikFormHook = () => {
   });
 
   return (
-    <div style = {{maxWidth: "500px", margin: "20px auto", padding: "20px", border: "1px solid #ccc", borderRadius: "8px", marginLeft: "100px"}}>
+    <div style = {{maxWidth: "500px", margin: "20px auto", padding: "20px", border: "1px solid #ccc", borderRadius: "8px", marginLeft: "50px"}}>
       <h2 style = {{textAlign: "center", fontWeight: "bold"}}>Course Application</h2>
 
       <form onSubmit={formik.handleSubmit}>
         <input type = "text" name = "fullName" placeholder="Full name" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.fullName} style = {{width: "100%", padding: "8px", marginBottom: "8px"}}/>
-        {formik.touched.fullName && formik.errors.fullName && (
-          <div style = {{color: "red"}}>{formik.errors.fullName}</div>
-        )}
+        {formik.touched.fullName && formik.errors.fullName && (<div style = {{color: "red"}}>{formik.errors.fullName}</div>)}
 
         <div style = {{display: "flex", gap: "10px", marginBottom: "8px"}}>
         <input type = "email" name = "email" placeholder="Email" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} style = {{width: "48%", marginBottom: "8px", padding: "8px", marginRight: "'2%"}}/>
@@ -59,9 +57,7 @@ export const FormikFormHook = () => {
         </div>
 
         <input type = "password" name = "password" placeholder="Password" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} style = {{width: "100%", marginBottom: "8px", padding: "8px"}}/>
-        {formik.touched.password && formik.errors.password && (
-          <div style = {{color: "red"}}>{formik.errors.password}</div>
-        )}
+        {formik.touched.password && formik.errors.password && (<div style = {{color: "red"}}>{formik.errors.password}</div>)}
 
         <p>Which course are you applying for ?</p>
         <label>
@@ -75,16 +71,12 @@ export const FormikFormHook = () => {
         <label>
           <input type = "radio" name = "course" placeholder="Course C" onChange={formik.handleChange}/> Course C
         </label>
-        {formik.touched.course && formik.errors.course && (
-          <div style = {{color: "red"}}>{formik.errors.course}</div>
-        )}
+        {formik.touched.course && formik.errors.course && (<div style = {{color: "red"}}>{formik.errors.course}</div>)}
 
-        <div style = {{display: "flex", justifyContent: "space-between", margib: "10px 0"}}>
+        <div style = {{display: "flex", justifyContent: "space-between", margin: "10px 0"}}>
           <div>
             <input type = "date" name = "dob" onChange={formik.handleChange} value={formik.values.dob} style = {{padding: "6px"}}/> 
-            {formik.touched.dob && formik.errors.dob && (
-              <div style = {{color: "red"}}>{formik.errors.dob}</div>
-            )}
+            {formik.touched.dob && formik.errors.dob && (<div style = {{color: "red"}}>{formik.errors.dob}</div>)}
           </div>
 
           <div>
@@ -94,9 +86,7 @@ export const FormikFormHook = () => {
             <label style = {{marginLeft: "15px"}}>
               <input type = "radio" name = "gender" placeholder="Female" onChange={formik.handleChange}/> Female
             </label>
-            {formik.touched.gender && formik.errors.gender && (
-              <div style = {{color: "red"}}>{formik.errors.gender}</div>
-            )}
+            {formik.touched.gender && formik.errors.gender && (<div style = {{color: "red"}}>{formik.errors.gender}</div>)}
           </div>
         </div>
 
@@ -114,9 +104,7 @@ export const FormikFormHook = () => {
           <input type = "text" name = "city" placeholder="City" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.city} style = {{flexh: 1, padding: "8px"}}/>
           <input type = "text" name = "state" placeholder="State" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.state} style = {{flexh: 1, padding: "8px"}}/>
         </div>
-        {formik.touched.city && formik.errors.city && (
-          <div style = {{color: "red"}}>{formik.errors.city}</div>
-        )}
+        {formik.touched.city && formik.errors.city && (<div style = {{color: "red"}}>{formik.errors.city}</div>)}
 
         <div style = {{display: "flex", gap: "10px", marginBottom: "8px"}}>
           <input type = "text" name = "zip" placeholder="Zip Code" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.zip} style = {{flexh: 1, padding: "8px"}}/>
@@ -127,9 +115,7 @@ export const FormikFormHook = () => {
             <option value = "UK">UK</option>
           </select>
         </div>
-        {formik.touched.country && formik.errors.country && (
-          <div style = {{color: "red"}}>{formik.errors.country}</div>
-        )}
+        {formik.touched.country && formik.errors.country && (<div style = {{color: "red"}}>{formik.errors.country}</div>)}
 
         <button type="submit" style = {{width: "100%", backgroundColor: "green", color: "white", padding: "10px", fontSize: "16px", border: "none", borderRadius: "4px"}}>
           Submit
@@ -138,3 +124,10 @@ export const FormikFormHook = () => {
     </div>
   );
 };
+
+// git init 
+// git add .
+// git commit -m "Midterm1"
+// git branch -M main
+// git remote add origin https:/…
+// git push -u origin main
